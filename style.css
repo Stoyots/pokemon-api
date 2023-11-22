@@ -1,0 +1,98 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: #0d0e0f;
+}
+
+body{
+  color: white;
+  font: 400 1rem "Roboto", sans-serif;
+}
+
+input,
+textarea,
+select,
+button {
+  color: white;
+  font: 400 1rem "Roboto", sans-serif;
+}
+
+
+
+button {
+  cursor: pointer;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+body {
+  width: 80%;
+  margin: 0 auto;
+  margin-top: 2rem;
+  
+}
+
+.searchBox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+}
+
+.searchBox input {
+  border-radius: 8px 0 0 8px;
+  border: 0;
+  outline: none;
+  height: 36px;
+  padding: 4px 16px;
+  background-color: white;
+  color: #c96b6b;
+}
+
+.searchBox button {
+  border-radius: 0 8px 8px 0;
+  border: 0;
+  height: 36px;
+  padding: 4px 16px;
+  background-color: white;
+}
+
+.pokemonBox {
+  display: grid;
+  margin-top: 3rem;
+  justify-content: center;
+  background-color: #c96b6b;
+}
+
+.pokemonBox img {
+  width: 200px;
+  background-color: 0 4px 8px 0 rgba(255, 255, 255, 0.2);
+  transition: 0.3s;
+  background-color: rgb(108, 122, 117);
+  margin-right: 3rem;
+}
+
+.pokemonBox p {
+  margin-top: 1rem;
+  text-align: left;
+  margin-left: 1rem;
+  line-height: 0.75;
+  
+}
+
+.pokemonBox h1 {
+  text-align: left;
+  margin-left: 1rem;
+  margin-top: 1rem;
+}
+
+.pokemonInfos {
+  padding: 2px 16px;
+  background-color: rgb(7, 239, 157);
+}
+
