@@ -46,9 +46,9 @@ const getPokemon = (e) => {
                     image.src = `${data.sprites.other['official-artwork'].front_default}`;
                     image.alt = `${data.name}`;
                     number.textContent = `N° : ${data.id}`;
-                    weight.textContent = `Weight : ${Math.round(data.weight/10)} kg`;
+                    weight.textContent = `Poids : ${Math.round(data.weight/10)} kg`;
                     type.textContent = `Type : ${data.types[0].type.name.charAt(0).toUpperCase() + data.types[0].type.name.slice(1)}`
-                    height.textContent = `Height : ${data.height*10} cm`
+                    height.textContent = `Taille : ${data.height*10} cm`
                 });
         }).catch((err) => {
             alert('Pokemon not found', err);
