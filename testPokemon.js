@@ -44,9 +44,8 @@ const getPokemon = (e) => {
             namepokemon.textContent = `${data.name.charAt(0).toUpperCase() + data.name.slice(1)}`;
             number.textContent = `N° : ${data.id}`;
             weight.textContent = `Weight : ${Math.round(data.weight/10)} kg`;
-            type.textContent = `Type : ${data.types[0].type.name.charAt(0).toUpperCase() + data.types[0].type.name.slice(1)}`
+            type.textContent = `Type : ${translateType(data.types[0].type.name)}`;
             height.textContent = `Height : ${data.height*10} cm`
-
 
         }).catch((err) => {
             alert('Pokemon not found', err);
