@@ -1,3 +1,29 @@
+const pokemonType = {
+    bug :'🦗',
+    dark :'🔮',
+    dragon :'🐉',
+    electric :'⚡',
+    fairy :'🦋',
+    fighting :'🥊',
+    fire :'🔥',
+    flying :'🪶',
+    ghost :'👻',
+    grass :'🌿',
+    ground :'⛰️',
+    ice :'❄️',
+    normal :'',
+    poison :'☠️',
+    psychic :'🌀',
+    rock :'🪨',
+    steel :'⚔️',
+    water :'💧'
+    }
+    
+function translateType(text){
+    return pokemonType[text]
+}
+console.log(translateType('steel'))
+    
 const getPokemon = (e) => {
     const getname = document.querySelector("#pokemonName").value;
     const name = getname.toLowerCase();
@@ -8,6 +34,8 @@ const getPokemon = (e) => {
     const type = document.querySelector("#type");
     const height = document.querySelector("#height")
 
+
+
     fetch(`https://pokeapi.co/api/v2/pokemon/${name}`)
         .then((response) => response.json())
         .then((data) => {
@@ -15,7 +43,7 @@ const getPokemon = (e) => {
             image.alt = `${data.name}`;
             namepokemon.textContent = `${data.name.charAt(0).toUpperCase() + data.name.slice(1)}`;
             number.textContent = `N° : ${data.id}`;
-            weight.textContent = `Weight : ${Math.round(data.weight*0.453592)} kg`;
+            weight.textContent = `Weight : ${Math.round(data.weight/10)} kg`;
             type.textContent = `Type : ${data.types[0].type.name.charAt(0).toUpperCase() + data.types[0].type.name.slice(1)}`
             height.textContent = `Height : ${data.height*10} cm`
 
@@ -28,4 +56,4 @@ const getPokemon = (e) => {
 }
 document.querySelector('#search').addEventListener("click", getPokemon);
 
-//map(index)
+//map(index) à voir
