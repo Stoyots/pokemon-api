@@ -79,8 +79,15 @@ height:auto;
 
 .pokemonBox p {
   margin-top: 1rem;
+  z-index: 0;
 }
 
 .pokemonBox .pokemonInfos {
   padding: 2rem;
+}
+
+#pokemoncard{
+  z-index: -1;
+  margin-top: 2rem;
+  justify-content: center;
 }

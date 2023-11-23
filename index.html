@@ -2,36 +2,38 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1=2.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="style.css">
-    <title>Pokemon API</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1=2.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="pokemon.css">
+  <title>Pokemon API</title>
 </head>
 
 <body>
 
-        <img id="logo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/International_Pok%C3%A9mon_logo.svg/2560px-International_Pok%C3%A9mon_logo.svg.png"/>
-        <div class="searchbox">
-            <input id="pokemonName" value="" type="text" placeholder="Pokemon Name">
-            <button id="search">Search</button>
-        </div>
-        
-        <div class="pokemonBox">
-            <div>
-                <img id='imagepokemon' src="" alt ="" />
-            </div>
-            <div class="pokemoninfo">
-                <h1 id ="namepokemon"></h1>
-                <p id="Number"></p>
-                <p id="weight"></p>
-                <p id="type"></p>
-                <p id ="height"></p>
-        </div>
-        </div>
-    <p></p>
-   
-<script src="testPokemon.js"></script>
+  <img id="logo"
+    src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/International_Pok%C3%A9mon_logo.svg/2560px-International_Pok%C3%A9mon_logo.svg.png" />
+  <div class="searchbox">
+    <input id="pokemonName" value="" type="text" placeholder="Pokemon Name">
+    <button id="search">Search</button>
+  </div>
+  
+  <div class="pokemonBox">
+    <div>
+      <img id='imagepokemon' src="" alt="" />
+          <img id ='pokemoncard' src=""/>
+    </div>
+    <div class="pokemoninfo">
+      <h1 id="namepokemon"></h1>
+      <p id="Number"></p>
+      <p id="weight"></p>
+      <p id="type"></p>
+      <p id="height"></p>
+    </div>
+  </div>
+  <p></p>
+
+  <script src="pokemon.js"></script>
 </body>
 
 </html>
