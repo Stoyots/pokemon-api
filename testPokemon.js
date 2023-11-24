@@ -47,38 +47,71 @@ const pokemonType = {
 function translateType(text) {
   return pokemonType[text]
 }
-console.log(translateType('steel'))
 
-const getPokemon = (e) => {
-  const getname = document.querySelector("#pokemonName").value;
-  const name = getname.toLowerCase();
-  const image = document.querySelector("#imagepokemon");
-  const namepokemon = document.querySelector("#namepokemon");
-  const number = document.querySelector("#Number");
-  const weight = document.querySelector("#weight");
-  const type = document.querySelector("#type");
-  const height = document.querySelector("#height")
+// Ajout d'un événement pour détecter le chargement de la page
+document.addEventListener("DOMContentLoaded", function() {
+  const rickRollAudio = document.getElementById("rickRollAudio");
+  const rickRollImage = document.getElementById("rickRollImage");
 
-  fetch(`https://pokebuildapi.fr/api/v1/pokemon/${name}`)
-      .then((response) => response.json())
-      .then((frenchData) => {
-          const frenchName = frenchData.name;
-          namepokemon.textContent = frenchName.charAt(0).toUpperCase() + frenchName.slice(1);
+  const getPokemon = (e) => {
+      const getname = document.querySelector("#pokemonName").value;
+      const name = getname.toLowerCase();
+      const image = document.querySelector("#imagepokemon");
+      const namepokemon = document.querySelector("#namepokemon");
+      const number = document.querySelector("#Number");
+      const weight = document.querySelector("#weight");
+      const type = document.querySelector("#type");
+      const height = document.querySelector("#height");
 
-          fetch(`https://pokeapi.co/api/v2/pokemon/${frenchData.id}`)
-              .then((response) => response.json())
-              .then((data) => {
-                  image.src = `${data.sprites.other['official-artwork'].front_default}`;
-                  image.alt = `${data.name}`;
-                  number.textContent = `N° : ${data.id}`;
-                  weight.textContent = `Poids : ${Math.round(data.weight / 10)} kg`;
-                  type.innerHTML = `Type : <img src="${translateType(data.types[0].type.name)}"/>`
-                  height.textContent = `Taille : ${data.height * 10} cm`
-              });
-      }).catch((err) => {
-          alert('Pokemon non trouvé', err);
-      });
-  e.preventDefault();
-}
+      if (name === '0' || name === '898') {
+          // Si le numéro est 0 ou 898, lance le rick roll
+          rickRollAudio.play();
+          rickRollImage.style.display = 'block';
+          // Masque les informations Pokémon
+          image.style.display = 'none';
+          namepokemon.style.display = 'none';
+          number.style.display = 'none';
+          weight.style.display = 'none';
+          type.style.display = 'none';
+          height.style.display = 'none';
+          return;
+      }
 
-document.querySelector('#search').addEventListener("click", getPokemon);
+      // Si le numéro n'est pas 0 ou 898, masque le rick roll
+      rickRollAudio.pause();
+      rickRollAudio.currentTime = 0;
+      rickRollImage.style.display = 'none';
+      // Affiche les informations Pokémon
+      image.style.display = 'block';
+      namepokemon.style.display = 'block';
+      number.style.display = 'block';
+      weight.style.display = 'block';
+      type.style.display = 'block';
+      height.style.display = 'block';
+
+      // Continue avec la recherche Pokémon normale
+      fetch(`https://pokebuildapi.fr/api/v1/pokemon/${name}`)
+          .then((response) => response.json())
+          .then((frenchData) => {
+              const frenchName = frenchData.name;
+              namepokemon.textContent = frenchName.charAt(0).toUpperCase() + frenchName.slice(1);
+
+              fetch(`https://pokeapi.co/api/v2/pokemon/${frenchData.id}`)
+                  .then((response) => response.json())
+                  .then((data) => {
+                      image.src = `${data.sprites.other['official-artwork'].front_default}`;
+                      image.alt = `${data.name}`;
+                      number.textContent = `N° : ${data.id}`;
+                      weight.textContent = `Poids : ${Math.round(data.weight / 10)} kg`;
+                      type.innerHTML = `Type : <img src="${translateType(data.types[0].type.name)}"/>`
+                      height.textContent = `Taille : ${data.height * 10} cm`
+                  });
+          }).catch((err) => {
+              alert('Pokemon non trouvé', err);
+          });
+
+      e.preventDefault();
+  }
+
+  document.querySelector('#search').addEventListener("click", getPokemon);
+});
