@@ -93,9 +93,8 @@ main {
   justify-content: center;
 }
 
-/* Ajout du style pour l'image de Rick Roll */
 #rickRollImage {
   width: 100%;
-  max-width: 500px; /* Ajustez la largeur maximale selon vos besoins */
-  display: none; /* Initialement caché */
+  max-width: 500px;
+  display: none;
 }
