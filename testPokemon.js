@@ -1,5 +1,5 @@
 const pokemonCard = {
-  bug: 'pokemon-api/img/plant.png',
+  bug: 'plantCard.png',
   dark: 'darkCard.png',
   dragon: 'dragonCard.png',
   electric: 'electricCard.png',
@@ -7,15 +7,15 @@ const pokemonCard = {
   fighting: 'fightingCard.png',
   fire: 'fireCard.png',
   flying: 'flyCard.png',
-  ghost: 'pokemon-api/img/psychique.png',
-  grass: 'pokemon-api/img/plant.png',
-  ground: 'pokemon-api/img/fight.png',
-  ice: 'pokemon-api/img/water.png',
+  ghost: 'psyCard.png',
+  grass: 'plantCard.png',
+  ground: 'fightCard.png',
+  ice: 'waterCard.png',
   normal: 'normalCard.png',
   poison: 'poisonCard.png',
   psychic: 'psyCard.png',
-  rock: 'pokemon-api/img/fight.png',
-  steel: 'pokemon-api/img/steel.png',
+  rock: 'fightCard.png',
+  steel: 'steelCard.png',
   water: 'waterCard.png'
 }
 
